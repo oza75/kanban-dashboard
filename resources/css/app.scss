@@ -1,0 +1,220 @@
+@import "reset";
+@import "utils";
+
+:root {
+    --primary-color: #be123c;
+    --secondary-color: #1d4ed8;
+    --slate-200: #f1f5f9;
+    --default-color: #343B48;
+    --gray-100: #5e6c84;
+
+    --border: #d5e3ec;
+    --green: #41cf7c;
+    --red: #f25353;
+    --gray: #B6B7BB;
+}
+
+body {
+    color: var(--default-color);
+    background: var(--primary-color);
+    font-family: Nunito, sans-serif;
+}
+
+.app-board {
+    display: flex;
+    padding-top: 4px;
+}
+
+.kanban {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-height: calc(100vh - 4px);
+
+    &__btn {
+        padding: 10px 16px;
+        border-radius: 5px;
+    }
+}
+
+.kanban-column {
+    min-width: 272px;
+    max-width: 272px;
+    margin: 0 4px;
+    cursor: pointer;
+
+    &__content {
+        background: var(--slate-200);
+        border-radius: 5px;
+    }
+
+    &__close-btn {
+        padding: 4px 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    &__title {
+        padding: 8px 16px;
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: bold;
+    }
+
+    &__body {
+        padding: 8px;
+
+        &:empty {
+            padding: 0;
+        }
+    }
+
+    &__footer {
+        padding-bottom: 8px;
+    }
+
+    &--add-column {
+        &__form {
+            transition: all .3s;
+            background: #ffffff3d;
+
+            &:hover {
+                background: rgb(255 255 255 / 30%);
+            }
+
+            &.active {
+                background: white;
+                padding: 4px;
+            }
+
+            svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .form__footer {
+                margin-top: 4px;
+            }
+        }
+
+
+        &__placeholder {
+            padding: 10px 16px;
+            color: white;
+            display: flex;
+            align-items: center;
+
+            svg {
+                width: 20px;
+                height: 20px;
+                margin-right: 8px;
+            }
+        }
+    }
+
+    .form {
+        .form__control {
+            border-bottom: 1px solid #091e4240;;
+            background: white;
+        }
+    }
+}
+
+.add-card {
+    &__btn {
+        padding: 4px 8px;
+        margin: 2px 0 8px 8px;
+        border-radius: 5px;
+        display: flex;
+        width: 92%;
+        color: var(--gray-100);
+        align-items: center;
+
+        svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+
+        &:hover {
+            background: #091e4214;
+            color: #172b4d;
+        }
+    }
+
+    &__form {
+        padding: 4px 8px;
+
+        svg {
+            width: 24px;
+            height: 24px;
+            margin-left: 12px;
+        }
+
+        .form__footer {
+            margin-top: 8px;
+        }
+    }
+}
+
+.card {
+    background: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border-bottom: 1px solid #091e4240;
+    margin-bottom: 8px;
+}
+
+.cards {
+    display: block;
+    width: 100%;
+}
+
+.card-modal {
+    &__title, &__body {
+        padding: 8px 12px;
+    }
+
+    &__title {
+        font-size: 25px;
+        font-weight: 700;
+        border-radius: 0 !important;
+    }
+
+    &__body {
+        margin-top: 12px;
+    }
+
+    &__description-label {
+        display: block;
+        font-weight: 700;
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    &__description-textarea {
+        &[readonly] {
+            background: #091e420a !important;
+            border: none !important;
+        }
+    }
+
+    .form__footer {
+        margin-top: 10px;
+
+        .btn:last-child {
+            margin-left: 8px;
+        }
+    }
+}
