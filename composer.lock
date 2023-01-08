@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "731de89edff176026d07281121419987",
+    "content-hash": "b2973e145fb165cc39bd05e65bb7dcda",
     "packages": [
         {
             "name": "brick/math",
@@ -2147,6 +2147,57 @@
                 }
             ],
             "time": "2022-12-20T19:00:15+00:00"
+        },
+        {
+            "name": "oza75/laravel-make-repository",
+            "version": "v0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oza75/laravel-make-repository.git",
+                "reference": "42ac5dc8f0863649ea03d9746df8e24a8a1915d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oza75/laravel-make-repository/zipball/42ac5dc8f0863649ea03d9746df8e24a8a1915d9",
+                "reference": "42ac5dc8f0863649ea03d9746df8e24a8a1915d9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.3|^8"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Oza75\\MakeRepository\\MakeRepositoryServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Oza75\\MakeRepository\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aboubacar OUATTARA",
+                    "email": "abouba181@gmail.com"
+                }
+            ],
+            "description": "A laravel command to create repository default files",
+            "support": {
+                "issues": "https://github.com/oza75/laravel-make-repository/issues",
+                "source": "https://github.com/oza75/laravel-make-repository/tree/v0.3"
+            },
+            "time": "2021-02-17T18:03:20+00:00"
         },
         {
             "name": "phpoption/phpoption",

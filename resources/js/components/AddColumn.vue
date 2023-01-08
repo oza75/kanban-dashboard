@@ -14,12 +14,13 @@
                 <div class="form__group">
                     <label for="column_name" class="sr-only">Column name</label>
                     <input type="text" name="column_name" id="column_name" class="form__control" required
-                           placeholder="Enter the title of the column" v-model="title" autocomplete="off">
+                           placeholder="Enter the name of the column" v-model="name" autocomplete="off">
                 </div>
 
                 <div class="flex flex--align-center form__footer">
                     <button type="submit" class="btn btn--primary" :disabled="!valid">
-                        Add
+                        <SvgLoading v-if="submitting"/>
+                        <span v-else>Add new column</span>
                     </button>
                     <button type="button" class="btn btn--icon" @click="showForm = !showForm">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -35,24 +36,34 @@
 </template>
 
 <script>
+import SvgLoading from "./SvgLoading.vue";
+
 export default {
     name: "AddColumn",
+    components: {SvgLoading},
     data: () => ({
         showForm: false,
-        title: null,
+        name: null,
+        submitting: false,
     }),
     computed: {
         valid() {
-            return !!this.title;
+            return !!this.name;
         }
     },
     methods: {
         add() {
             if (!this.valid) return;
 
-            this.$emit('add', {title: this.title, id: this.title.length, cards: []})
-            this.title = null;
-            this.showForm = false;
+            this.submitting = true;
+
+            this.$axios.post('/board/columns', {name: this.name}).then(res => {
+                this.$emit('add', res.data.data)
+                this.title = null;
+                this.showForm = false;
+            }).finally(_ => {
+                this.submitting = false;
+            })
         }
     }
 }
