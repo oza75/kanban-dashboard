@@ -13,7 +13,7 @@
         <form @submit.prevent="createCard" class="form add-card__form" v-show="showForm">
             <div class="form-group">
                 <label for="card_title" class="sr-only">Card title</label>
-                <textarea v-model="title" rows="3" class="form__control" name="card_title" id="card_title"
+                <textarea v-model="title" rows="3" class="form__control" @keydown.enter="createCard" name="card_title" id="card_title"
                           placeholder="Enter a title for the new card"/>
             </div>
 

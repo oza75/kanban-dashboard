@@ -210,6 +210,19 @@ body {
         }
     }
 
+
+    &__close-btn {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        z-index: 10;
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
     .form__footer {
         margin-top: 10px;
 

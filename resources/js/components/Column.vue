@@ -14,7 +14,7 @@
                 <draggable v-model="column.cards" group="column" draggable=".card">
                     <transition-group class="cards">
                         <template v-for="(card, index) in column.cards">
-                            <Card :card="card" :key="`card-${index}`"/>
+                            <Card :card="card" :key="`card-${index}`" @update="updateCard($event, index)"/>
                         </template>
                     </transition-group>
                 </draggable>
@@ -44,6 +44,11 @@ export default {
             cards.push(card)
             this.$set(this.column, 'cards', cards)
             // this.column.cards.push(card)
+        },
+        updateCard(card, index) {
+            const cards = Object.assign([], this.column.cards)
+            cards[index] = card
+            this.$set(this.column, 'cards', cards)
         }
     }
 }
